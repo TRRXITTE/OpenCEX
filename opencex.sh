@@ -385,6 +385,46 @@ done
 
 echo "`cat <<YOLLOPUKKI
 
+echo "`cat <<YOLLOPUKKI
+
+=======================================================================================
+     STEP 7B OF 12. TRRXITTE ETHEREUM (ETX) SUPPORT (OPTIONAL)
+=======================================================================================
+
+You can set ENABLED_ETX: False or leave it blank to turn it off.
+
+ETX_API_KEY* - used for the TRRXITTE Ethereum blockchain data
+ETX_SAFE_ADDR* - TRRXITTE Ethereum address. All ETX and ERC-20 (ETX) deposits go there
+
+---------------------------------------------------------------------------------------
+
+YOLLOPUKKI`"
+
+while true; do
+    echo -n "ENABLED_ETX (True/False): "
+    read ENABLED_ETX
+    export ENABLED_ETX
+
+    if [ "$ENABLED_ETX" = "True" ]; then
+        echo -n "ETX_API_KEY*: "
+        read ETX_API_KEY
+        export ETX_API_KEY
+
+        echo -n "ETX_SAFE_ADDR*: "
+        read ETX_SAFE_ADDR
+        export ETX_SAFE_ADDR
+    fi
+
+    echo "-----------------------------------------------------------"
+    read -p "IS EVERYTHING CORRECT? (y or n)" YESORNO
+    case $YESORNO in
+        [Yy]* ) break;;
+        [Nn]* ) echo "Re-enter the parameters.";;
+        * ) break;;
+    esac
+done
+
+
 ===========================================================
      STEP 8 OF 12. EMAIL SERVICE
 ===========================================================
